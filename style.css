@@ -1,0 +1,285 @@
+/*  Fonts
+-----
+font-family: 'Lora', serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  /* background: pink; */
+  font-size: 1.125rem;
+  font-weight: 300; /* bcz of this light font weight date and comments are not need to explicitly styling */
+}
+/* imp generic / global */
+img {
+  max-width: 100%;
+  display: block;
+}
+.image-full {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+/* =================
+Typography
+================= */
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+  color: #143774;
+  font-weight: 400;
+  margin-top: 0;
+}
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+h3 {
+  color: #1792d2;
+}
+
+a {
+  color: #1792d2;
+}
+a:hover,
+a:focus {
+  color: #143774;
+}
+strong {
+  font-weight: 700;
+}
+/* p {
+  margin: 0;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-style: "ubuntu", sans-serif;
+  font-size: 0.75rem;
+} */
+
+/* h1 subtitle */
+.subtitle {
+  font-weight: 700;
+  color: #1792d2;
+  font-size: 0.75rem;
+  margin: 0;
+}
+.artical-title {
+  font-size: 1.5rem;
+}
+.widget-title,
+.widget-recent-post-title {
+  font-size: 1rem;
+}
+.widget-title {
+  font-style: "ubuntu", sans-serif;
+  /* margin: 0 auto; */
+  font-weight: bold;
+}
+/* =================
+Layout
+================= */
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 2em 0;
+  text-align: center;
+  margin-bottom: 0px;
+}
+@media (min-width: 675px) {
+  .container-flex {
+    flex-direction: row;
+  }
+  main {
+    width: 70%;
+  }
+  aside {
+    width: 25%;
+    min-width: 200px;
+    margin-left: 1em;
+  }
+}
+/* navigation */
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin-left: 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #707070;
+  font-weight: 700;
+  padding: 0.25em 0;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #1792d2;
+}
+
+.current-page {
+  border-bottom: 1px solid #707070;
+}
+
+.current-page:hover {
+  color: #707070;
+}
+
+@media (max-width: 675px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: 0.5em 0;
+  }
+}
+/* main {
+  width: 75%;
+}
+aside {
+  width: 20%;
+} */
+
+footer {
+  background: #143774;
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+a .artical-read-more,
+.artical-info {
+  /* date and comment info font-size */
+  font-size: 0.875rem;
+}
+.artical-read-more {
+  color: #1792d2;
+  text-decoration: none;
+  font-weight: 700;
+}
+.artical-info {
+  margin: 2em 0;
+}
+.artical-read-more:hover {
+  color: #143774;
+  text-decoration: underline;
+}
+.artical-featured {
+  border-bottom: 1px solid grey;
+  padding-bottom: 1em;
+  margin: 0;
+}
+/* how to change the visual order with flexbox */
+.artical-recent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+/* to change the order go inside the child element */
+.artical-recent-main {
+  order: 2;
+  margin: 0 1em;
+}
+.artical-recent-secondary {
+  order: 1;
+}
+/*dont create media queries based on the size of certain devices or set devices */
+/* imp: with negative margins we can create this cool stuff (imaginary columns) but as we use or change structure of html it will throw some error and text may overlap with negative margin */
+/* @media (min-width: 550px) {
+  .artical-recent-main {
+    margin-top: -2.5em;
+  }
+  .artical-info {
+    text-align: right;
+  }
+} */
+@media (min-width: 675px) {
+  .artical-recent {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .artical-recent-main {
+    width: 68%;
+  }
+  .artical-recent-secondary {
+    width: 30%;
+  }
+  .artical-image {
+    width: 100%;
+    min-height: 250px;
+    object-fit: cover;
+    /* object-position: left */
+  }
+}
+/* creating or we can saay splitting from a defined break point and make two columns from a single column */
+@media (min-width: 675px) {
+  .artical-recent {
+    flex-direction: row;
+  }
+  .artical-recent-main {
+    width: 70%;
+  }
+  .artical-recent-secondary {
+    width: 30%;
+  }
+  .artical-featured {
+    display: flex;
+    flex-direction: column;
+  }
+  /* not work below here fig out why */
+  /* .artical-image {
+    order: -2;
+  }
+  .artical-info {
+    order: -1;
+  } */
+}
+/* widgets */
+.sidebar-widget {
+  border: 20px solid rgb(231, 241, 231);
+  margin-bottom: 2em;
+  padding: 1em;
+}
+.widget-recent-post {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid darkgrey;
+  margin: 1em;
+}
+.widget-recent-post:last-child {
+  /* last child is an another pseudo class  */
+  border: 0;
+  margin-bottom: 0;
+}
+.widget-recent-post-title {
+  color: darkblue;
+}
+.widget-image {
+  order: -1;
+}
